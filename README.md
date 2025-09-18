@@ -15,7 +15,7 @@ detects EC2 failures, creates incidents, and provides immediate remediation guid
 DevOps team, all within ServiceNow. The system integrates our internal AWS monitoring server
 with ServiceNow, enabling quick, informed, and centralized incident response.
 
-### Implementation Steps
+## Implementation Steps
 
 **1. Core System Setup**
 
@@ -48,29 +48,15 @@ they need to resolve the issue without manual searching.
 - Incident Creation: Finally, the flow automatically creates an incident record for the failed EC
 instance, centralizing the issue in the IT Service Management system.
 
-
-### Outcome and Remediation Process
-
-*When an EC2 instance fails, here's how the EC2 Remediation system automates the response:*
-
-- Detection: The AWS Integration Server detects the failure and updates the EC2 Instance table
-in ServiceNow, changing its status to "OFF."
-
-- Automation: The Flow Designer workflow immediately triggers. It retrieves the relevant
-knowledge article, sends a Slack notification to the DevOps team with the guidance, and
-creates a new incident record.
-
-- Notification: An automated Slack message alerts the team to an EC2 failure. The message
-includes a direct, one-click link to the incident and the relevant knowledge article.
-
-- Remediation: The engineer navigates to the incident or the EC2 record. The AI-provided
-knowledge article recommends clicking the "Trigger EC2 Remediation" button.
-
-- Resolution: Clicking the button makes a REST API call to restart the instance. The entire
-process is logged for auditing and review in the Remediation Log table.
+## System Architecture Diagram
+The diagram.png file shows the seamless flow from EC2 failure detection to automated incident
+creation, AI-powered guidance, one-click manual remediation, and AI agent implementation with all actions logged for
+auditing.
+<img width="1550" height="1203" alt="Diagram" src="https://github.com/user-attachments/assets/cd3f6d94-f4c1-416e-80eb-0b69c368d678" />
 
 
-**AI Agent Enhancement and Optimization**
+
+## Optimization
 
 - The successful manual remediation system was enhanced with an AI Agent to provide a more efficient, conversational workflow. This enhancement adds an intelligent layer that can identify EC2 instance IDs from natural language input, get human-in-the-loop approval, and execute the same remediation scripts without requiring DevOps engineers to navigate the UI.
 
@@ -82,7 +68,10 @@ process is logged for auditing and review in the Remediation Log table.
 
 - Script Optimization: The AI Agent's Script Tool was designed to use the same proven RemediationHelper logic, ensuring consistency and reliability across both the manual and AI-driven workflows.
 
-**DevOps Usage**
+  <img width="870" height="467" alt="Screen Shot 2025-09-18 at 9 18 02 AM" src="https://github.com/user-attachments/assets/7486d568-f0fa-46ab-baa2-d7cbd95f3510" />
+
+
+## DevOps Usage
 
 For Netflix DevOps engineers, the system provides a choice between two workflows:
 
@@ -91,9 +80,7 @@ For Netflix DevOps engineers, the system provides a choice between two workflows
 - AI Agent Workflow (for quick resolution): For routine or urgent issues, engineers can interact with the AI Agent by typing a command like "Restart instance i-09ae69f1cb71f622e" or "Help me with incident INC0001234". The agent will handle the rest with human approval.
 
 
-**System Architecture Diagram**
-The diagram.png file shows the seamless flow from EC2 failure detection to automated incident
-creation, AI-powered guidance, one-click manual remediation, and AI agent implementation with all actions logged for
-auditing.
+<img width="1392" height="454" alt="Screen Shot 2025-09-18 at 9 48 32 AM" src="https://github.com/user-attachments/assets/6e7b473f-aafa-42b0-ad5b-c4b156aeadd9" />
+
 
 
